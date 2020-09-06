@@ -1,7 +1,5 @@
 package string.anagrams;
 
-import util.StringUtils;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
