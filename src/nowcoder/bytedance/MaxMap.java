@@ -1,4 +1,4 @@
-package bytedance;
+package nowcoder.bytedance;
 
 /**
  * @description: 有 n 个字符串，每个字符串都是由 A-J 的大写字符构成。
