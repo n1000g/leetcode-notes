@@ -1,5 +1,7 @@
 package util;
 
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -53,6 +55,53 @@ public class StringUtils {
 
     public static <T> String integerArrayListToString(List<T> list) {
         return list.toString();
+    }
+
+    /**
+     * String -> BTree(int val)
+     *      input: "1,2,3,null,4,null,5,null,null,6,7,null,null,null,8"
+     *      output:     1
+     *                /   \
+     *              2      3
+     *               \      \
+     *                4      5
+     *                      / \
+     *                     6   7
+     *                          \
+     *                           8
+     */
+    public static TreeNode stringToBinaryTree(String input) {
+        if (input.length() == 0) return null;
+        String[] stringVals = input.trim().split(",");
+        if (stringVals.length == 0) return null;
+        Deque<TreeNode> nodeQueue = new LinkedList<>();
+        String item = stringVals[0];
+        TreeNode root = new TreeNode(Integer.parseInt(item));
+        nodeQueue.add(root);
+
+        int idx = 1;
+        while (!nodeQueue.isEmpty()) {
+            TreeNode node = nodeQueue.remove();
+
+            if (idx == stringVals.length) break;
+
+            item = stringVals[idx ++].trim();
+            if (!item.contentEquals("null")) {
+                int leftVal = Integer.parseInt(item);
+                node.left = new TreeNode(leftVal);
+                nodeQueue.add(node.left);
+            }
+
+            if (idx == stringVals.length) break;
+
+            item = stringVals[idx ++].trim();
+            if (!item.contentEquals("null")) {
+                int rightVal = Integer.parseInt(item);
+                node.right = new TreeNode(rightVal);
+                nodeQueue.add(node.right);
+            }
+        }
+        return root;
     }
 
     /**

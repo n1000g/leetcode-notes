@@ -1,4 +1,4 @@
-package tree;
+package util;
 
 /**
  * @description:
@@ -6,4 +6,10 @@ package tree;
  * @createDate: 2020/9/9
  */
 public class TreeNode {
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
+    public TreeNode(int val) {
+        this.val = val;
+    }
 }
