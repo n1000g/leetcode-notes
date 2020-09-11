@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
- * @description: 20
+ * @description: 20 括号匹配
  * @author: n8g
  * @createDate: 2020/9/7
  */
