@@ -1,4 +1,4 @@
-package divideconquer;
+package arrays.divideconquer;
 
 public class ToUpperCase {
     public static void main(String[] args) {

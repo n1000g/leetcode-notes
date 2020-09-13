@@ -5,6 +5,11 @@ Classify by question types.
 
 ### 题目列表
  
+- arrays
+  - sub-array
+    - 78.子集
+    - 77.全排列
+    - 49.组合
 - string
   - anagrams
     - 242.有效的异位词
