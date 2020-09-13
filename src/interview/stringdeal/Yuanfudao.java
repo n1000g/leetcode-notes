@@ -1,6 +1,4 @@
-package nowcoder.stringdeal;
-
-import java.util.Scanner;
+package interview.stringdeal;
 
 /**
  * 输入 s1,s2,s3,n
