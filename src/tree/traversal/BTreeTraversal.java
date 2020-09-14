@@ -9,6 +9,20 @@ import java.util.*;
  * @description: 迭代
  * @author: n8g
  * @createDate: 2020/9/9
+ *
+ * @TestData:
+ *      1,2,3,null,4,null,5,null,null,6,7,null,null,null,8
+ *
+ *                            1
+ *                          /  \
+ *                         2    3
+ *                         \     \
+ *                          4     5
+ *                               / \
+ *                              6   7
+ *                                   \
+ *                                    8
+ *
  */
 public class BTreeTraversal {
 
@@ -24,10 +38,16 @@ public class BTreeTraversal {
             List<Integer> inorder = solution.inorderTraversal(root);
             System.out.println("InOrder: " + inorder.toString());
             List<Integer> postorder = solution.postorderTraversal(root);
-            System.out.println("PostOrder" + postorder.toString());
+            System.out.println("PostOrder" + postorder.toString());;
+            List<Integer> levelorder = solution.levelorderTraversal(root);
+            System.out.println("LevelOrder" + levelorder.toString());
         }
     }
 
+    /**
+     * 先序遍历
+     *      中左右
+     */
     private List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         Deque<TreeNode> stack = new LinkedList<>();
@@ -55,6 +75,10 @@ public class BTreeTraversal {
         return res;
     }
 
+    /**
+     * 中序遍历
+     *      左中右（左子树入栈）
+     */
     private List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         Deque<TreeNode> stack = new LinkedList<>();
@@ -73,6 +97,10 @@ public class BTreeTraversal {
         return res;
     }
 
+    /**
+     * 后序遍历
+     *      左右中
+     */
     private List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         Deque<TreeNode> stack = new LinkedList<>();
@@ -87,6 +115,23 @@ public class BTreeTraversal {
             } else {
                 res.add(stack.pop().val);
             }
+        }
+        return res;
+    }
+
+    /**
+     * 层序遍历
+     *      队列
+     */
+    private List<Integer> levelorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Deque<TreeNode> queue = new LinkedList<>();
+        if (root != null) queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.remove();
+            res.add(node.val);
+            if (node.left != null) queue.add(node.left);
+            if (node.right != null) queue.add(node.right);
         }
         return res;
     }

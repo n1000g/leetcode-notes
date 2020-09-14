@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *  迭代
  *  []
  *  [1]
  *  [2] [1,2]
