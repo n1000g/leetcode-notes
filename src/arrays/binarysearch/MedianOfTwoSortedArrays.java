@@ -6,7 +6,7 @@ package arrays.binarysearch;
  *  对
  *      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  m = 10
  *      [1, 2, 4, 9]                     n = 4
- *
+ *  每次取两个数组的第 k/2 小的数比较
  */
 public class MedianOfTwoSortedArrays {
 
