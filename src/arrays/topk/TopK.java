@@ -21,14 +21,14 @@ public class TopK {
     public static void main(String[] args) {
         int[] arr = {1, 1, 2, 3, 4, 4, 5, 5, 5, 6, 7, 5, 7, 7, 8};
         TopK solution = new TopK();
-        System.out.println(Arrays.toString(solution.getTopK(arr, 1).toArray()));
-        System.out.println(Arrays.toString(solution.getTopK(arr, 2).toArray()));
-        System.out.println(Arrays.toString(solution.getTopK(arr, 3).toArray()));
-        System.out.println(Arrays.toString(solution.getTopK(arr, 4).toArray()));
-        System.out.println(Arrays.toString(solution.getTopK(arr, 5).toArray()));
+        System.out.println(Arrays.toString(solution.getTopK(arr, 1)));
+        System.out.println(Arrays.toString(solution.getTopK(arr, 2)));
+        System.out.println(Arrays.toString(solution.getTopK(arr, 3)));
+        System.out.println(Arrays.toString(solution.getTopK(arr, 4)));
+        System.out.println(Arrays.toString(solution.getTopK(arr, 5)));
     }
 
-    private List<Integer> getTopK(int[] arr, int k) {
+    private int[] getTopK(int[] arr, int k) {
         // 空间复杂度 O(n * k)
         List<Integer>[] bucket = new List[arr.length + 1];
         Map<Integer, Integer> frequencyMap = new HashMap<>();
@@ -48,6 +48,6 @@ public class TopK {
                 res.addAll(bucket[i]);
             }
         }
-        return res;
+        return res.stream().mapToInt(Integer::valueOf).toArray();
     }
 }
