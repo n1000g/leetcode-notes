@@ -1,4 +1,4 @@
-package unionfind;
+package design;
 
 /**
  * 并查集
