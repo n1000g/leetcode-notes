@@ -15,6 +15,7 @@ public class ToUpperCase {
     private String toUpperCase(String s, int left, int right) {
         // 模拟分治，不具体写逻辑了
         if (right == left) return s.substring(left, right + 1).toUpperCase();
+        // s.charAt(left) += ('A' - 'a');
         int mid = (left + right) / 2;
         return toUpperCase(s, left, mid) + toUpperCase(s, mid + 1, right);
     }
